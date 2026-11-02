@@ -33,13 +33,15 @@ export default function Home() {
 
       {/* ── Selected work ── */}
       <section className="work wrap" id="work">
-        <div className="section-heading">
-          <span>01 / Selected work</span>
-          <p>
-            A few things we imagined.<br />
-            A little differently.
-          </p>
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <span>01 / Selected work</span>
+            <p>
+              A few things we imagined.<br />
+              A little differently.
+            </p>
+          </div>
+        </Reveal>
         <div className="projects">
           {projects.map((p) => (
             <ProjectCard key={p.slug} project={p} />
@@ -71,13 +73,15 @@ export default function Home() {
 
       {/* ── Services ── */}
       <section className="services wrap">
-        <div className="section-heading">
-          <span>03 / What we do</span>
-          <p>
-            Small studio.<br />
-            Wide perspective.
-          </p>
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <span>03 / What we do</span>
+            <p>
+              Small studio.<br />
+              Wide perspective.
+            </p>
+          </div>
+        </Reveal>
         {[
           "Art direction & identity",
           "Digital experiences",

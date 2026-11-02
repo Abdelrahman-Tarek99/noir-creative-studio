@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
+import { PageTransition } from "@/components/page-transition";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
+    <PageTransition>
     <section className="simple-page wrap">
       <p className="section-label">About / The studio</p>
       <h1>
@@ -128,5 +130,6 @@ export default function About() {
         </div>
       </Reveal>
     </section>
+    </PageTransition>
   );
 }

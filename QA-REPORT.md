@@ -114,6 +114,30 @@
 | Responsive: mobile (≤800px) | CSS reviewed — single-column layout |
 | Form fields styled to match editorial design | Pass |
 
+---
+
+## Phase 4 QA (2026-11-02)
+
+### Build verification
+| Check | Result |
+|---|---|
+| `npm run typecheck` | Pass — 0 errors |
+| `npm run lint` | Pass — 0 errors, 2 config warnings |
+| `npm run build` | Pass — 11 pages generated |
+| Production server routes | All 6 page routes return HTTP 200 |
+
+### Motion components
+| Feature | Status | Notes |
+|---|---|---|
+| Sticky header with hide-on-scroll | Implemented | `scroll-header-wrap` in HTML, `data-hidden` toggles on scroll direction |
+| Parallax on project art blocks | Implemented | `data-parallax-inner` in HTML, ScrollTrigger scrub, will-change:transform |
+| Page transition (fade-up) | Implemented | Case study + About pages wrapped in PageTransition |
+| Section heading reveals | Implemented | "01 / Selected work" and "03 / What we do" wrapped in Reveal |
+| Reduced motion | Pass | All new components check `prefers-reduced-motion` before initializing |
+| GSAP cleanup | Pass | All effects use `gsap.context()` with `.revert()` in cleanup |
+| No duplicate ScrollTriggers | Pass — code review | Each component creates/reverts its own context |
+| No RAF/ticker leaks | Pass — code review | Lenis callback removed in MotionProvider cleanup |
+
 ### Known issues / not yet tested
 | Issue | Severity | Notes |
 |---|---|---|

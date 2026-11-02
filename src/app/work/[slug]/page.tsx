@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { Reveal } from "@/components/reveal";
+import { PageTransition } from "@/components/page-transition";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -34,6 +35,7 @@ export default async function ProjectPage({
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
   return (
+    <PageTransition>
     <article className="case-study wrap">
       {/* ── Header ── */}
       <div className="case-header">
@@ -153,5 +155,6 @@ export default async function ProjectPage({
         </Link>
       </div>
     </article>
+    </PageTransition>
   );
 }

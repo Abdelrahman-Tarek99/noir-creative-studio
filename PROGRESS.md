@@ -48,6 +48,14 @@
     - Keywords, authors, creator, metadataBase
   - Created .env.example documenting provider config (Resend example)
   - Typecheck: 0 errors; Lint: 0 errors; Build: 11 pages (+ icon.svg, apple-icon), all routes 200
+- [x] Phase 4: Motion and polish (2026-11-02)
+  - Added sticky header with hide-on-scroll (scroll-header.tsx): recedes on scroll-down, reappears on scroll-up, reduced-motion safe
+  - Added parallax effect on project card art blocks (parallax.tsx): subtle ScrollTrigger-scrubbed vertical shift, will-change:transform
+  - Added page transition component (page-transition.tsx): fade-up entrance on case study and about pages
+  - Wrapped section headings (01/Selected work, 03/What we do) in Reveal for scroll-triggered entrance
+  - Refactored project-card.tsx: parallax wrapper around art block with inner container for content
+  - All new motion respects prefers-reduced-motion, cleans up via gsap.context().revert()
+  - Typecheck: 0 errors; Lint: 0 errors; Build: 11 pages, all routes 200
 - [ ] Write unit/E2E tests and QA audit
 - [ ] Optimize and record real Lighthouse results
 - [ ] Deploy to Vercel and smoke test live routes

@@ -26,6 +26,18 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px }
 /* Layout */
 .wrap { width: min(100% - 72px, 1440px); margin: auto }
 
+/* ── Scroll header wrapper ── */
+.scroll-header-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+.scroll-header-wrap[data-hidden="true"] {
+  transform: translateY(-100%);
+}
+
 /* ── Header ── */
 .site-header {
   height: 110px;
@@ -224,12 +236,18 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px }
   min-height: 390px;
   aspect-ratio: 1.38;
   position: relative;
+}
+.projects > div:first-child .project-art { aspect-ratio: 2.2 }
+
+.project-art-inner {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-.projects > div:first-child .project-art { aspect-ratio: 2.2 }
 
 .art-grid {
   position: absolute;
