@@ -1,0 +1,54 @@
+# NOIR progress
+
+- [x] Define scope and editorial direction
+- [x] Create Next.js/TypeScript/Tailwind starter and baseline pages
+- [x] Add GSAP reveals and Lenis foundation with reduced-motion guard
+- [x] Prepare 5 team-member briefs
+- [x] Install dependencies and verify typecheck/lint/build (2026-11-02)
+  - npm install: 327 packages, 16 audit advisories (15 moderate, 1 high — eslint deprecation)
+  - typecheck: clean (0 errors)
+  - lint: 2 warnings (anonymous default exports in config files), 0 errors
+  - build: success, 9 static pages generated (/, /_not-found, /about, /contact, /work/form-and-function, /work/object-studies, /work/still-life)
+  - Routes verified: /, /about, /contact, /work/[slug] ×3
+- [x] Phase 1: Homepage polish, mobile navigation, responsive layouts (2026-11-02)
+  - Added hero kinetic reveal animation (GSAP staggered entrance, reduced-motion safe)
+  - Built mobile hamburger navigation with overlay, body scroll lock, Escape key close
+  - Added contact CTA section (section 04) on homepage
+  - Refined responsive CSS at 4 breakpoints: 400px, 800px, 1024px, 1440px
+  - Improved hero bottom layout for mobile (stacked instead of side-by-side)
+  - Added service-line hover state
+  - Fixed ESLint config to ignore .next build output and next-env.d.ts
+  - Typecheck: 0 errors; Lint: 0 errors (2 config warnings); Build: 9 pages, all routes 200
+- [x] Phase 2: Case studies and studio pages (2026-11-02)
+  - Expanded Project data model with full case study fields: role, timeline, overview, challenge, process (4 steps each), solution, result, disclaimer
+  - Built rich case study page template: header, hero art block, 4-column details grid, overview/challenge/process/solution/result sections, visual break, disclaimer, next-project navigation
+  - Added numbered process steps with CSS counters, editorial two-column section layout, visual break blocks
+  - Rewrote About page: intro grid with lead text, 3 approach values (Restraint, Feeling, Craft), 6-item services grid, contact CTA
+  - All content clearly labeled as fictional/concept — no fake metrics or client claims
+  - Added responsive styles for case study and about page at all breakpoints
+  - Typecheck: 0 errors; Lint: 0 errors; Build: 9 pages, all routes 200
+- [x] Phase 3: Contact form, favicon, and meta tags (2026-11-02)
+  - Built server action (src/app/contact/action.ts) with:
+    - Server-side validation (name ≤100, email format, message 10–5000 chars)
+    - Honeypot spam protection (hidden "website" field)
+    - In-memory rate limiting (30s per email)
+    - Graceful degradation: logs to console when no email provider configured
+    - Generic email provider integration via CONTACT_PROVIDER_URL/KEY/EMAIL env vars
+  - Built contact form UI (src/components/contact-form.tsx) with:
+    - useActionState for progressive enhancement
+    - Error/success states, disabled button while pending
+    - Editorial-styled form fields matching site design
+  - Contact page (src/app/contact/page.tsx): two-column layout with info + form
+  - Created SVG favicon (icon.svg): "N" + terracotta dot on ink background
+  - Created apple-touch-icon (apple-icon.tsx): generated PNG via next/og ImageResponse
+  - Updated root layout with comprehensive metadata:
+    - OG (type, locale, siteName, title, description)
+    - Twitter card (summary_large_image)
+    - Theme color (light/dark)
+    - Keywords, authors, creator, metadataBase
+  - Created .env.example documenting provider config (Resend example)
+  - Typecheck: 0 errors; Lint: 0 errors; Build: 11 pages (+ icon.svg, apple-icon), all routes 200
+- [ ] Write unit/E2E tests and QA audit
+- [ ] Optimize and record real Lighthouse results
+- [ ] Deploy to Vercel and smoke test live routes
+- [ ] Capture portfolio screenshots and a short interaction video

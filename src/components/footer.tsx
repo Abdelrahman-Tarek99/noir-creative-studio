@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function Footer(){return <footer className="footer wrap"><div><div className="footer-title">Have something<br/><em>interesting</em> in mind?</div><Link className="text-link" href="/contact">Start a conversation ↗</Link></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NOIR — fictional studio concept</span><span>Independent by design.</span><Link href="#top">Back to top ↑</Link></div></footer>}
