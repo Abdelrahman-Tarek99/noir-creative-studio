@@ -138,6 +138,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px }
 }
 
 .mobile-nav[data-open="true"] {
+  display: flex;
   opacity: 1;
   pointer-events: auto;
 }

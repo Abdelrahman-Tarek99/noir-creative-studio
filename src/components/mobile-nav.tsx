@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => { setMounted(true) }, []);
 
   useEffect(() => {
     if (open) {
@@ -25,6 +29,15 @@ export function MobileNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, close]);
 
+  const overlay = (
+    <nav className="mobile-nav" data-open={open} aria-label="Mobile navigation">
+      <p className="mobile-nav-label">Menu</p>
+      <Link href="/#work" onClick={close}>Work</Link>
+      <Link href="/about" onClick={close}>Studio</Link>
+      <Link href="/contact" onClick={close}>Contact</Link>
+    </nav>
+  );
+
   return (
     <>
       <button
@@ -37,12 +50,7 @@ export function MobileNav() {
         <span />
         <span />
       </button>
-      <nav className="mobile-nav" data-open={open} aria-label="Mobile navigation">
-        <p className="mobile-nav-label">Menu</p>
-        <Link href="/#work" onClick={close}>Work</Link>
-        <Link href="/about" onClick={close}>Studio</Link>
-        <Link href="/contact" onClick={close}>Contact</Link>
-      </nav>
+      {mounted && createPortal(overlay, document.body)}
     </>
   );
 }
