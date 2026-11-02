@@ -4,7 +4,7 @@ A fictional creative studio portfolio built with Next.js. Editorial design, scro
 
 > **All brands, projects and case studies on this site are concept work — fictional projects designed to demonstrate methodology, not real client engagements.**
 
-**[Live site →](https://noir-creative-studio.vercel.app)**
+**[Live site →](https://noir-creative-studio-tawny.vercel.app)**
 
 ## Tech stack
 

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "NOIR Creative Studio" }],
   creator: "NOIR Creative Studio",
-  metadataBase: new URL("https://noir-creative-studio.vercel.app"),
+  metadataBase: new URL("https://noir-creative-studio-tawny.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
