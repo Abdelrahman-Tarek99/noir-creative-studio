@@ -71,5 +71,31 @@
   - Added opengraph-image.tsx (1200×630 edge-rendered OG image)
   - Polished README.md with tech stack, features, setup instructions, disclaimer
   - Build verified: 13 routes including sitemap.xml and opengraph-image
-- [ ] Deploy to Vercel and smoke test live routes
+- [x] Deployed to Vercel: https://noir-creative-studio-tawny.vercel.app (2026-11-02)
+- [x] v1.1 — Interactive 3D, motion polish, visual storytelling (2026-11-02)
+  - Added Three.js / React Three Fiber / Drei for hero 3D sculpture:
+    - Metallic torus knot with pointer tracking and idle rotation
+    - Lazy-loaded via IntersectionObserver (no first-load JS impact)
+    - WebGL detection with SVG static fallback
+    - prefers-reduced-motion guard disables entirely
+    - Responsive: absolute-positioned on desktop, stacked on mobile
+  - Improved hero entrance choreography:
+    - GSAP timeline with clip-path headline wipe, staggered eyebrow and bottom
+  - Added Magnetic component for CTA buttons:
+    - Pointer-following transform on hover, disabled on touch/reduced-motion
+    - Applied to hero arrow, contact CTA, and case study navigation
+  - Enhanced project card hover interactions:
+    - Art block scale on hover, corner arrow shift, year meta slide-in
+    - Gradient overlay on art blocks for visual depth
+  - Improved case study visual storytelling:
+    - Gradient hero blocks using accent + accentDark color pair
+    - Radial gradient overlays on case hero blocks
+    - Per-project OG metadata
+  - Polished navigation:
+    - Desktop nav link underline animation (scaleX with origin flip)
+    - Mobile nav staggered link entrance on open
+  - Verified all 8 motion components guard prefers-reduced-motion
+  - Verified GSAP cleanup on all 4 GSAP components
+  - All routes verified: 7 pages return 200, 404 works correctly
+  - Typecheck: 0 errors; Lint: 0 errors; Build: 13 routes, homepage 153kB first load
 - [ ] Capture portfolio screenshots and a short interaction video

@@ -217,3 +217,70 @@
 | Email delivery | Requires env vars; graceful degradation verified |
 | Placeholder imagery | Abstract color blocks, no photography |
 | `robots: noindex` | Still set; change when ready for indexing |
+
+---
+
+## v1.1 QA (2026-11-02)
+
+### Build verification
+| Check | Result |
+|---|---|
+| `npm run typecheck` | Pass — 0 errors |
+| `npm run lint` | Pass — 0 errors, 0 warnings |
+| `npm run build` | Pass — 13 routes generated |
+| First Load JS (homepage) | 153 kB (Three.js lazy-loaded, not in first load) |
+
+### Route testing
+| Route | Status |
+|---|---|
+| `/` | 200 |
+| `/about` | 200 |
+| `/contact` | 200 |
+| `/work/form-and-function` | 200 |
+| `/work/object-studies` | 200 |
+| `/work/still-life` | 200 |
+| `/sitemap.xml` | 200 |
+| `/nonexistent` | 404 |
+
+### New features verified
+| Feature | Status | Notes |
+|---|---|---|
+| 3D hero sculpture | Implemented | Torus knot via R3F, pointer tracking, idle rotation |
+| WebGL fallback | Implemented | SVG static fallback when WebGL unavailable |
+| Lazy loading (3D) | Implemented | IntersectionObserver + React.lazy, 0 first-load JS impact |
+| Reduced-motion (3D) | Pass | Sculpture disabled entirely under prefers-reduced-motion |
+| Hero entrance choreography | Improved | GSAP timeline: clip-path wipe on headline, staggered elements |
+| Magnetic buttons | Implemented | Pointer-following CTA buttons, disabled on touch/reduced-motion |
+| Project card hover | Enhanced | Art block scale, corner arrow shift, year meta slide-in |
+| Art block gradients | Implemented | Gradient overlay for visual depth on project cards |
+| Case study hero gradients | Implemented | accent→accentDark gradient + radial overlays |
+| Nav link underline | Implemented | scaleX animation with origin flip on hover |
+| Mobile nav stagger | Implemented | Links stagger in on open with translateY + opacity |
+| Per-project OG metadata | Added | Each case study has unique OG title/description |
+
+### Accessibility
+| Check | Status | Notes |
+|---|---|---|
+| All 8 motion components guard reduced-motion | Pass | hero-reveal, hero-sculpture, magnetic, motion-provider, page-transition, parallax, reveal, scroll-header |
+| Magnetic disabled on touch devices | Pass | `pointer: coarse` media query check |
+| GSAP cleanup (4 components) | Pass | gsap.context() with .revert() |
+| 3D canvas aria-hidden | Pass | Decorative element hidden from assistive technology |
+| Skip-to-content link | Present | Targets #main-content |
+| Heading hierarchy | Pass | h1 → h2 → h3 on all pages |
+
+### Responsive
+| Breakpoint | Status | Notes |
+|---|---|---|
+| 375px | CSS reviewed | Hero sculpture stacks in flow, reduced opacity |
+| 768px (≤800px) | CSS reviewed | Single-column layout, sculpture in flow |
+| 1024px | CSS reviewed | Sculpture 40% width, reduced opacity |
+| 1440px | CSS reviewed | Full desktop: sculpture absolute right, 45% width |
+
+### Remaining known limitations
+| Item | Notes |
+|---|---|
+| No real-device testing | CSS reviewed only; browser automation not used for visual screenshots |
+| No Lighthouse scores | No audit has been run; scores not claimed |
+| No browser cross-testing | Safari/Firefox not formally tested |
+| Email delivery | Requires env vars; graceful degradation verified |
+| `robots: noindex` | Still set; change when ready for indexing |

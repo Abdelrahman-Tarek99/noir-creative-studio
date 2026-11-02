@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { HeroReveal } from "@/components/hero-reveal";
+import { HeroSculpture } from "@/components/hero-sculpture";
+import { Magnetic } from "@/components/magnetic";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/projects";
 
@@ -9,6 +11,7 @@ export default function Home() {
     <>
       {/* ── Hero ── */}
       <section className="hero wrap">
+        <HeroSculpture />
         <HeroReveal>
           <div className="eyebrow" data-hero-reveal>
             <span>Independent creative practice</span>
@@ -24,9 +27,11 @@ export default function Home() {
               We shape distinct identities and digital experiences for those who
               see the world differently.
             </p>
-            <Link className="round-arrow" aria-label="Explore selected work" href="#work">
-              ↓
-            </Link>
+            <Magnetic strength={0.4}>
+              <Link className="round-arrow" aria-label="Explore selected work" href="#work">
+                ↓
+              </Link>
+            </Magnetic>
           </div>
         </HeroReveal>
       </section>
@@ -106,9 +111,11 @@ export default function Home() {
             Ready to make<br />
             something <em>remarkable</em>?
           </h2>
-          <Link className="cta-btn" href="/contact">
-            Get in touch <span aria-hidden>↗</span>
-          </Link>
+          <Magnetic strength={0.25}>
+            <Link className="cta-btn" href="/contact">
+              Get in touch <span aria-hidden>↗</span>
+            </Link>
+          </Magnetic>
         </Reveal>
       </section>
     </>

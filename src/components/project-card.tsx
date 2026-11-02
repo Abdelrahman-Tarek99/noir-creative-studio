@@ -27,7 +27,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <h3>{project.title}</h3>
             <p>{project.category}</p>
           </div>
-          <span>{project.year} ↗</span>
+          <span className="project-year">{project.year} ↗</span>
         </div>
       </Link>
     </Reveal>

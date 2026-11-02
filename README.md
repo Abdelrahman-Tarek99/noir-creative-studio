@@ -11,19 +11,26 @@ A fictional creative studio portfolio built with Next.js. Editorial design, scro
 - **Framework** — Next.js 15 (App Router, static generation)
 - **Language** — TypeScript, React 19
 - **Styling** — Tailwind CSS v4 + custom CSS
+- **3D** — Three.js, React Three Fiber, Drei
 - **Motion** — GSAP + ScrollTrigger, Lenis smooth scroll
 - **Deployment** — Vercel (edge OG image generation)
 
 ## Features
 
+- Interactive 3D hero sculpture (metallic torus knot with pointer tracking)
+- Lazy-loaded WebGL with SVG fallback for non-WebGL browsers
+- Cinematic GSAP entrance with clip-path headline wipe
+- Magnetic CTA buttons with pointer-following transform
 - Scroll-triggered reveals, parallax, and page transitions
 - Sticky header with scroll-direction hide/show
-- Mobile navigation with fullscreen overlay
+- Enhanced project card hover (scale, arrow shift, meta slide)
+- Desktop nav links with animated underline
+- Mobile navigation with staggered link reveals
 - Server-validated contact form with honeypot + rate limiting
-- `prefers-reduced-motion` guards on all animation
+- `prefers-reduced-motion` guards on all 8 motion components
 - Skip-to-content link for keyboard navigation
 - SVG favicon + generated Apple touch icon + OG image
-- Comprehensive OpenGraph and Twitter Card metadata
+- Per-page OpenGraph and Twitter Card metadata
 - Sitemap generation
 - Responsive at 4 breakpoints (400px, 800px, 1024px, 1440px)
 

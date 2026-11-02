@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { Reveal } from "@/components/reveal";
+import { Magnetic } from "@/components/magnetic";
 import { PageTransition } from "@/components/page-transition";
 
 export function generateStaticParams() {
@@ -19,6 +20,10 @@ export async function generateMetadata({
   return {
     title: p?.title ?? "Project",
     description: p?.description,
+    openGraph: {
+      title: `${p?.title} — NOIR Case Study`,
+      description: p?.description,
+    },
   };
 }
 
@@ -47,7 +52,7 @@ export default async function ProjectPage({
       </div>
 
       {/* ── Hero art block ── */}
-      <div className="case-hero" style={{ background: p.accent }}>
+      <div className="case-hero" style={{ background: `linear-gradient(160deg, ${p.accent} 0%, ${p.accentDark} 100%)` }}>
         <span>{p.tag}</span>
         <strong>{p.title}</strong>
       </div>
@@ -110,7 +115,7 @@ export default async function ProjectPage({
 
       {/* ── Visual break ── */}
       <Reveal>
-        <div className="case-visual-break" style={{ background: p.accent }}>
+        <div className="case-visual-break" style={{ background: `linear-gradient(135deg, ${p.accentDark} 0%, ${p.accent} 100%)` }}>
           <div className="case-visual-inner">
             <span className="case-visual-tag">{p.tag} / Visual direction</span>
             <strong>{p.title.split(" ")[0]}</strong>
@@ -150,9 +155,11 @@ export default async function ProjectPage({
         <Link className="text-link" href="/#work">
           ← All projects
         </Link>
-        <Link className="text-link" href={`/work/${nextProject.slug}`}>
-          Next: {nextProject.title} →
-        </Link>
+        <Magnetic strength={0.2}>
+          <Link className="text-link" href={`/work/${nextProject.slug}`}>
+            Next: {nextProject.title} →
+          </Link>
+        </Magnetic>
       </div>
     </article>
     </PageTransition>

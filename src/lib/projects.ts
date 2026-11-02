@@ -5,6 +5,7 @@ export interface Project {
   category: string;
   year: string;
   accent: string;
+  accentDark: string;
   tag: string;
   description: string;
   role: string;
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     category: "Brand identity / Art direction",
     year: "2026",
     accent: "#cfc1af",
+    accentDark: "#8a7b66",
     tag: "Identity",
     description:
       "A distinctive visual identity for a conceptual architecture practice that bridges restraint and expression.",
@@ -54,6 +56,7 @@ export const projects: Project[] = [
     category: "Digital experience / Editorial",
     year: "2026",
     accent: "#bbb9b0",
+    accentDark: "#7a786f",
     tag: "Digital",
     description:
       "An editorial-first digital flagship for a fictional design publication exploring the relationship between objects and meaning.",
@@ -83,6 +86,7 @@ export const projects: Project[] = [
     category: "Campaign / Creative direction",
     year: "2026",
     accent: "#e6d4bf",
+    accentDark: "#9e8b72",
     tag: "Campaign",
     description:
       "An imagined studio campaign celebrating material, restraint, and the quiet beauty of everyday composition.",
