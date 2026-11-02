@@ -36,10 +36,10 @@ export default function Home() {
         <Reveal>
           <div className="section-heading">
             <span>01 / Selected work</span>
-            <p>
+            <h2>
               A few things we imagined.<br />
               A little differently.
-            </p>
+            </h2>
           </div>
         </Reveal>
         <div className="projects">
@@ -76,10 +76,10 @@ export default function Home() {
         <Reveal>
           <div className="section-heading">
             <span>03 / What we do</span>
-            <p>
+            <h2>
               Small studio.<br />
               Wide perspective.
-            </p>
+            </h2>
           </div>
         </Reveal>
         {[

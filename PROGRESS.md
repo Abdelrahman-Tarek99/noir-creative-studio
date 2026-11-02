@@ -56,7 +56,20 @@
   - Refactored project-card.tsx: parallax wrapper around art block with inner container for content
   - All new motion respects prefers-reduced-motion, cleans up via gsap.context().revert()
   - Typecheck: 0 errors; Lint: 0 errors; Build: 11 pages, all routes 200
-- [ ] Write unit/E2E tests and QA audit
-- [ ] Optimize and record real Lighthouse results
+- [x] Phase 5: QA audit (2026-11-02)
+  - Fixed heading hierarchy: section-heading `<p>` → `<h2>` on homepage and about page
+  - Updated CSS selector `.section-heading p` → `.section-heading h2`
+  - Added skip-to-content link (visually hidden, visible on focus)
+  - Verified all 6 motion components guard prefers-reduced-motion
+  - Verified GSAP cleanup (gsap.context + revert) on all animation components
+  - Verified contrast ratios: ink/paper ≈ 13.3:1, muted/paper ≈ 4.6:1
+  - Verified form accessibility: labels, autocomplete, role="alert", honeypot hidden from AT
+  - Verified content integrity: all fictional labels present, no fabricated metrics
+  - Typecheck: 0 errors; Lint: 0 errors; Build: 13 routes
+- [x] Phase 6: Deploy preparation (2026-11-02)
+  - Added sitemap.ts with dynamic generation for all 6 pages
+  - Added opengraph-image.tsx (1200×630 edge-rendered OG image)
+  - Polished README.md with tech stack, features, setup instructions, disclaimer
+  - Build verified: 13 routes including sitemap.xml and opengraph-image
 - [ ] Deploy to Vercel and smoke test live routes
 - [ ] Capture portfolio screenshots and a short interaction video

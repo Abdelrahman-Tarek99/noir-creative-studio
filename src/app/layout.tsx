@@ -57,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body id="top">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <MotionProvider />
         <Header />
         <main id="main-content">{children}</main>

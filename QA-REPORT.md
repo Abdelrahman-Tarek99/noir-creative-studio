@@ -152,3 +152,68 @@
 - Node.js (npm)
 - Next.js 15.5.28
 - Build output: static pre-rendered pages
+
+---
+
+## Phase 5 QA (2026-11-02)
+
+### Build verification
+| Check | Result |
+|---|---|
+| `npm run typecheck` | Pass — 0 errors |
+| `npm run lint` | Pass — 0 errors |
+| `npm run build` | Pass — 13 routes generated (added sitemap.xml, opengraph-image) |
+
+### Accessibility audit
+| Check | Status | Notes |
+|---|---|---|
+| Heading hierarchy (homepage) | Fixed | Section headings changed from `<p>` to `<h2>` — now h1 → h2 → h3 |
+| Heading hierarchy (about page) | Fixed | Section headings changed from `<p>` to `<h2>` — now h1 → h2 → h3 |
+| CSS selector updated | Fixed | `.section-heading p` → `.section-heading h2` |
+| Skip-to-content link | Added | Visually hidden, visible on focus, targets `#main-content` |
+| `lang` attribute | Pass | `<html lang="en">` present |
+| Focus indicators | Pass | `a:focus-visible` with 2px outline on all links |
+| Form labels | Pass | All inputs have matching `<label htmlFor>` |
+| Form autocomplete | Pass | `name`, `email` autocomplete attributes present |
+| Error announcement | Pass | Error messages use `role="alert"` |
+| Honeypot hidden from AT | Pass | `aria-hidden="true"`, `tabIndex={-1}` |
+| Contrast (CSS review) | Pass | Ink (#171716) on paper (#f4f2ed) ≈ 13.3:1; muted (#66635e) on paper ≈ 4.6:1 |
+
+### Motion safety
+| Check | Status | Notes |
+|---|---|---|
+| Reduced-motion guards | Pass | All 6 motion components check `prefers-reduced-motion` |
+| GSAP cleanup | Pass | 4 GSAP components use `gsap.context()` with `.revert()` |
+| Lenis cleanup | Pass | Ticker callback removed, Lenis destroyed in unmount |
+| Scroll-header cleanup | Pass | RAF listener removed in cleanup |
+| No scroll traps | Pass | Scroll lock only active when mobile nav is open; body overflow restored on close |
+
+### Content integrity
+| Check | Status |
+|---|---|
+| Footer fictional label | Pass — "fictional studio concept" |
+| About page disclaimer | Pass — "concept work — fictional projects" |
+| Case study disclaimers | Pass — each project has a disclaimer paragraph |
+| No fabricated metrics or testimonials | Pass |
+| No real company names | Pass |
+
+---
+
+## Phase 6 — Deploy preparation (2026-11-02)
+
+### Assets added
+| Asset | Status |
+|---|---|
+| `sitemap.ts` — dynamic sitemap generation | Added — 6 URLs, all project slugs included |
+| `opengraph-image.tsx` — 1200×630 OG image | Added — edge-rendered, NOIR wordmark + terracotta dot |
+| README.md polished | Updated — tech stack, features, setup, disclaimer |
+
+### Remaining known limitations
+| Item | Notes |
+|---|---|
+| No real-device testing | CSS reviewed only; not tested on physical phones/tablets |
+| No Lighthouse scores claimed | No audit has been run |
+| No browser cross-testing | Safari/Firefox not formally tested |
+| Email delivery | Requires env vars; graceful degradation verified |
+| Placeholder imagery | Abstract color blocks, no photography |
+| `robots: noindex` | Still set; change when ready for indexing |

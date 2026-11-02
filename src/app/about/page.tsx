@@ -50,10 +50,10 @@ export default function About() {
         <div className="about-section">
           <div className="section-heading">
             <span>Our approach</span>
-            <p>
+            <h2>
               Three principles that<br />
               shape everything.
-            </p>
+            </h2>
           </div>
           <div className="about-values">
             <div className="about-value">
@@ -87,10 +87,10 @@ export default function About() {
         <div className="about-section">
           <div className="section-heading">
             <span>Capabilities</span>
-            <p>
+            <h2>
               What we bring<br />
               to the work.
-            </p>
+            </h2>
           </div>
           <div className="about-services-grid">
             {[
